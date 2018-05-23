@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'DebugPanel_Example' do
   pod 'DebugPanel', :path => '../'
+  pod 'Bohr', '~> 3.0'
 
   target 'DebugPanel_Tests' do
     inherit! :search_paths

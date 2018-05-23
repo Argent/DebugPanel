@@ -22,7 +22,7 @@ pod 'DebugPanel'
 
 ## Author
 
-Argent, benjamin@lendstar.io
+Benjamin Otto <Argent>, ben.otto2@gmail.com
 
 ## License
 

@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		226B545540EE40174975B5B9 /* Pods_DebugPanel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DebugPanel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53B021DC9CD9A3ACA1AEB2F3 /* Pods-DebugPanel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebugPanel_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DebugPanel_Tests/Pods-DebugPanel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		58A433D6F445C7557F0D98F0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		58A433D6F445C7557F0D98F0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* DebugPanel_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DebugPanel_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,8 +44,8 @@
 		6BA9A5C24BA934AE70881EE2 /* Pods-DebugPanel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebugPanel_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DebugPanel_Tests/Pods-DebugPanel_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		74B12A84BA30372F44D482A5 /* Pods-DebugPanel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebugPanel_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DebugPanel_Example/Pods-DebugPanel_Example.release.xcconfig"; sourceTree = "<group>"; };
 		929D690DF61ED1423E03063A /* Pods_DebugPanel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DebugPanel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFAD0D68215D728088B397B7 /* DebugPanel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = DebugPanel.podspec; path = ../DebugPanel.podspec; sourceTree = "<group>"; };
-		E90EC3A15845A3FE2CC43BF5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		CFAD0D68215D728088B397B7 /* DebugPanel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DebugPanel.podspec; path = ../DebugPanel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E90EC3A15845A3FE2CC43BF5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		FDFC39F8BBFFA0FDDB42112B /* Pods-DebugPanel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DebugPanel_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DebugPanel_Example/Pods-DebugPanel_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -304,10 +304,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DebugPanel_Example/Pods-DebugPanel_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bohr/Bohr.framework",
 				"${BUILT_PRODUCTS_DIR}/DebugPanel/DebugPanel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bohr.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DebugPanel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,7 +474,7 @@
 				INFOPLIST_FILE = DebugPanel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = de.otto.DebugPanel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -487,7 +489,7 @@
 				INFOPLIST_FILE = DebugPanel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = de.otto.DebugPanel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
