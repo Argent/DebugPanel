@@ -6,14 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 public class DebugActionCell: DebugCellType {
     
     let title: String
     let buttonTitle: String
-    let action: (() -> Void)
+    let action: ((UITableViewCell) -> Void)
     
-    public init(title: String, buttonTitle: String, action: @escaping (() -> Void)) {
+    public init(title: String, buttonTitle: String, action: @escaping ((UITableViewCell) -> Void)) {
         self.title = title
         self.buttonTitle = buttonTitle
         self.action = action

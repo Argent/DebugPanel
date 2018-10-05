@@ -20,7 +20,7 @@ class BOActionTableViewCell: BOTableViewCell {
             button?.setTitle(buttonTitle, for: .normal)
         }
     }
-    var actionBlock: (() -> Void)?
+    var actionBlock: ((UITableViewCell) -> Void)?
     
     override func setup() {
         super.setup()
@@ -43,7 +43,7 @@ class BOActionTableViewCell: BOTableViewCell {
     }
     
     @objc func buttonPressed(_ button: UIButton) {
-        actionBlock?()
+        actionBlock?(self)
     }
     
     override func updateAppearance() {

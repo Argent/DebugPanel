@@ -130,6 +130,12 @@ class DebugTableViewController: BOTableViewController {
             tableCell = BOStringChoiceTableViewCell(title: cell.title, key: cell.key, handler: { boCell in
                 (boCell as? BOStringChoiceTableViewCell)?.destinationViewController = DebugOptionsTableViewController(sections: cell.sections, key: cell.key)
             })
+        case let cell as DebugTableViewCell:
+            tableCell = BOSelectableTableViewCell(title: cell.text, key: nil, handler: { boCell in
+                (boCell as? BOSelectableTableViewCell)?.imageView?.image = cell.image
+                (boCell as? BOSelectableTableViewCell)?.accessoryType = cell.accessoryIndicator
+                (boCell as? BOSelectableTableViewCell)?.onSelection = cell.onSelection
+            })
         default:
             return
         }
