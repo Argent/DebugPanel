@@ -21,6 +21,12 @@ public class DebugPanel: NSObject {
         setup(window: window)
     }
     
+    deinit {
+        keyWindow = nil
+        debugWindow?.isHidden = true
+        debugWindow = nil
+    }
+    
     private func setup(window: UIWindow) {
         keyWindow = window
         
@@ -70,6 +76,7 @@ public class DebugPanel: NSObject {
     }
     
     @objc public func closeDebugPanel() {
+        debugWindow?.isHidden = true
         keyWindow?.makeKeyAndVisible()
         debugWindow = nil
     }
