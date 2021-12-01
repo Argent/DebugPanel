@@ -1,6 +1,6 @@
 PODS:
   - Bohr (3.0.0)
-  - DebugPanel (0.1.0):
+  - DebugPanel (0.2.6):
     - Bohr (~> 3.0)
 
 DEPENDENCIES:
@@ -8,7 +8,7 @@ DEPENDENCIES:
   - DebugPanel (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Bohr
 
 EXTERNAL SOURCES:
@@ -17,8 +17,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Bohr: 17b150766e54e1fb8ff417d85b830c7caafa8b4a
-  DebugPanel: 007dd71a8eae066fae6839fd6e9a2a8cbe09a68c
+  DebugPanel: dcf8de1d57723c69200d781b4a7b941095fde566
 
 PODFILE CHECKSUM: 5bd73f42e09e3f46959325bf90f11fd622abcc9a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.11.2

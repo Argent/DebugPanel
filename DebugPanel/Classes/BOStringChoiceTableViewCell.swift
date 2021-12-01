@@ -22,7 +22,7 @@ class BOStringChoiceTableViewCell: BOTableViewCell {
     }
     
     override func footerTitle() -> String? {
-        guard let currentOption = setting.value as? String, let index = options.index(of: currentOption), index < footerTitles.count else {
+        guard let currentOption = setting.value as? String, let index = options.firstIndex(of: currentOption), index < footerTitles.count else {
             return nil
         }
         return footerTitles[index]
@@ -33,7 +33,7 @@ class BOStringChoiceTableViewCell: BOTableViewCell {
             return
         }
         if let currentOption = setting.value as? String,
-                       let index = options.index(of: currentOption), index < options.count {
+                       let index = options.firstIndex(of: currentOption), index < options.count {
             setting.value = options[index] as AnyObject
         } else {
             setting.value = options.first as AnyObject
