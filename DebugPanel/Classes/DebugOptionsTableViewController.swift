@@ -44,7 +44,7 @@ class DebugOptionsTableViewController: BOTableViewController {
     }
     
     private func createSection(title: String, options promise: DebugPanelPromise<[String]>) {
-        let boSection = BOTableViewSection(headerTitle: title ?? "", handler: nil)
+        let boSection = BOTableViewSection(headerTitle: title, handler: nil)
         promise.resolvers({ [weak self] options -> Void in
             for option in options {
                 self?.createCell(option: option, forSection: boSection!)
@@ -54,7 +54,7 @@ class DebugOptionsTableViewController: BOTableViewController {
                 self?.tableView?.reloadData()
             }
         }) { error -> Void in
-            guard let error = error else {
+            guard error != nil else {
                 return
             }
 //            DDLogDebug("Could not load debug section '\(title)', error: \(error.description)'")

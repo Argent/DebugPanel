@@ -64,7 +64,7 @@ public class DebugPanel: NSObject {
         let sections = debugSectionsFromProviders()
         
         debugWindow = UIWindow(frame: UIScreen.main.bounds)
-        debugWindow?.windowLevel = UIWindowLevelNormal
+        debugWindow?.windowLevel = UIWindow.Level.normal
         let debugViewController = DebugTableViewController(sections: sections)
         let rootViewController = DebugNavigationController(rootViewController: debugViewController)
         debugWindow?.rootViewController = rootViewController
@@ -86,7 +86,7 @@ public class DebugPanel: NSObject {
     }
     
     public func unregisterProvider(provider: DebugPanelProvider) {
-        guard let index = providers.index(where: { (other: DebugPanelProvider) in other === provider }) else {
+        guard let index = providers.firstIndex(where: { (other: DebugPanelProvider) in other === provider }) else {
             return
         }
         providers.remove(at: index)

@@ -33,7 +33,7 @@ class DebugTableViewController: BOTableViewController {
         guard let debugSections = debugSections else {
             return
         }
-        for key in debugSections.flatMap({ $0.cells }).flatMap({ $0.keyValue() }) {
+        for key in debugSections.flatMap({ $0.cells }).compactMap({ $0.keyValue() }) {
             UserDefaults.standard.removeObserver(self, forKeyPath: key)
         }
     }
