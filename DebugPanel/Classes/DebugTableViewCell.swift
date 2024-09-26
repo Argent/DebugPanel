@@ -15,10 +15,10 @@ public class DebugTableViewCell: DebugCellType {
     let accessoryIndicator: UITableViewCell.AccessoryType
     let onSelection: ((UITableViewCell, UITableViewController) -> Void)
     
-    public init(text: String, image: UIImage? = nil, accesoryIndicator: UITableViewCell.AccessoryType = .none, onSelection: @escaping (UITableViewCell, UITableViewController) -> Void) {
+    public init(text: String, image: UIImage? = nil, accessoryIndicator: UITableViewCell.AccessoryType = .none, onSelection: @escaping (UITableViewCell, UITableViewController) -> Void) {
         self.text = text
         self.image = image
-        self.accessoryIndicator = accesoryIndicator
+        self.accessoryIndicator = accessoryIndicator
         self.onSelection = onSelection
     }
     
