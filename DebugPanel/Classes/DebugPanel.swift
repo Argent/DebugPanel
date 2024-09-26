@@ -16,6 +16,12 @@ public class DebugPanel: NSObject {
     
     private(set) public static var debugGesture: UIGestureRecognizer?
     
+    public var backgroundColor: UIColor = .systemBackground
+    public var preShowBlock: ((UIWindow) -> Void)?
+    public var postShowBlock: ((UIWindow) -> Void)?
+    public var preHideBlock: ((UIWindow) -> Void)?
+    public var postHideBlock: ((UIWindow) -> Void)?
+    
     public init(window: UIWindow) {
         super.init()
         setup(window: window)
@@ -63,22 +69,34 @@ public class DebugPanel: NSObject {
         
         let sections = debugSectionsFromProviders()
         
-        debugWindow = UIWindow(frame: UIScreen.main.bounds)
-        debugWindow?.windowLevel = UIWindow.Level.normal
+        let debugWindow = UIWindow(frame: UIScreen.main.bounds)
+        preShowBlock?(debugWindow)
+        
+        self.debugWindow = debugWindow
+        
+        debugWindow.windowLevel = UIWindow.Level.normal
         let debugViewController = DebugTableViewController(sections: sections)
+        debugViewController.tableView.backgroundColor = backgroundColor
         let rootViewController = DebugNavigationController(rootViewController: debugViewController)
-        debugWindow?.rootViewController = rootViewController
+        debugWindow.rootViewController = rootViewController
         
         let closeButton = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(DebugPanel.closeDebugPanel))
         debugViewController.navigationItem.rightBarButtonItem = closeButton
         
-        debugWindow?.makeKeyAndVisible()
+        debugWindow.makeKeyAndVisible()
+        
+        postShowBlock?(debugWindow)
     }
     
     @objc public func closeDebugPanel() {
+        let debugWindow = self.debugWindow
+        debugWindow.map({ self.preHideBlock?($0) })
+        
         debugWindow?.isHidden = true
         keyWindow?.makeKeyAndVisible()
-        debugWindow = nil
+        self.debugWindow = nil
+        
+        debugWindow.map({ self.postHideBlock?($0) })
     }
     
     public func registerProvider(provider: DebugPanelProvider) {
