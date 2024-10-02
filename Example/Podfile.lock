@@ -1,6 +1,6 @@
 PODS:
   - Bohr (3.0.0)
-  - DebugPanel (0.2.8):
+  - DebugPanel (0.2.9):
     - Bohr (~> 3.0)
 
 DEPENDENCIES:

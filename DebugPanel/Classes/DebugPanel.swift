@@ -70,11 +70,12 @@ public class DebugPanel: NSObject {
         let sections = debugSectionsFromProviders()
         
         let debugWindow = UIWindow(frame: UIScreen.main.bounds)
+        debugWindow.windowLevel = UIWindow.Level.normal
+
         preShowBlock?(debugWindow)
         
         self.debugWindow = debugWindow
         
-        debugWindow.windowLevel = UIWindow.Level.normal
         let debugViewController = DebugTableViewController(sections: sections)
         debugViewController.tableView.backgroundColor = backgroundColor
         let rootViewController = DebugNavigationController(rootViewController: debugViewController)
